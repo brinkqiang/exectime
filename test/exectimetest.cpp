@@ -12,6 +12,7 @@
 #include <stdio.h>
 
 #endif
+#include <memory>
 
 std::string DMExecute(const char* cmd)
 {
