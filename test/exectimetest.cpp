@@ -47,11 +47,20 @@ int main( int argc, char* argv[] ) {
         return -1;
     }
 
+    std::string strArgs;
+    for (int i=1; i < argc; ++i)
+    {
+        if (1 != i)
+        {
+            strArgs += " ";
+        }
+        strArgs += argv[i];
+    }
+
     uint32_t start = GetTickCount32();
-    std::string strRet = DMExecute(argv[1]);
+    std::string strRet = DMExecute(strArgs.c_str());
     uint32_t end = GetTickCount32();
-    std::cout << argv[1] << std::endl;
     std::cout << strRet << std::endl;
-    std::cout << start - end << " ms" << std::endl;
+    std::cout << end - start << " ms" << std::endl;
     return 0;
 }
