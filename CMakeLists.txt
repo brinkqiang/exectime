@@ -9,7 +9,7 @@ IF (WIN32)
 
     SET(DMOS_NAME "win")
 
-    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zi /nologo /Gm- /W3 /WX /EHsc /GS /fp:precise /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /Gd /TP")
+    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zi /nologo /Gm- /W3 /WX /EHsc /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Gd /TP")
     SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /FC /wd4996")
 
     SET(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /Od /RTC1 /MDd")
