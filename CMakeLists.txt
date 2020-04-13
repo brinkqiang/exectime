@@ -16,7 +16,6 @@ MESSAGE(STATUS "VERSION: ${EXECTIME_VERSION}")
 
 ADD_DEFINITIONS(-DUSE_EXECTIME)
 
-
 LibImport("exectime_module" "src/exectime_module")
 
 ExeImport("test" "exectime_module")
