@@ -19,16 +19,17 @@ int main( int argc, char* argv[] ) {
     }
 
     IExectime* poModule = ExectimeGetModule();
-    if (poModule)
+    if (NULL == poModule)
     {
-		uint32_t start = poModule->GetTickCount32();
-		std::string strRet = poModule->DMExecute(strArgs.c_str());
-		uint32_t end = poModule->GetTickCount32();
-		std::cout << strRet << std::endl;
-		std::cout << end - start << " ms" << std::endl;
-
-        poModule->Release();
+        return -1;
     }
+    
+    uint32_t start = poModule->GetTickCount32();
+    std::string strRet = poModule->DMExecute(strArgs.c_str());
+    uint32_t end = poModule->GetTickCount32();
+    std::cout << strRet << std::endl;
+    std::cout << end - start << " ms" << std::endl;
 
+    poModule->Release();
     return 0;
 }
