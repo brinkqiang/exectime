@@ -21,15 +21,20 @@
 
 #include "exectime.h"
 
-class Cexectime_module :
-    public Iexectime
+class CExectime_module :
+    public IExectime
 {
 public:
-    Cexectime_module();
+    CExectime_module();
     
-    virtual ~Cexectime_module();
+    virtual ~CExectime_module();
 
     virtual void DMAPI Release(void);
 	
     virtual void DMAPI Test(void);	
+
+
+    virtual std::string DMExecute(const char* cmd);
+
+    virtual uint32_t GetTickCount32();
 };

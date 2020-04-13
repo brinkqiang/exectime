@@ -24,16 +24,20 @@
 
 #include "dmos.h"
 
-class Iexectime
+class IExectime
 {
 public:
-    virtual ~Iexectime(){}
+    virtual ~IExectime(){}
     virtual void DMAPI Release(void) = 0;
 	
     virtual void DMAPI Test(void) = 0;
+
+	virtual std::string DMExecute(const char* cmd) = 0;
+
+	virtual uint32_t GetTickCount32() = 0;
 };
 
-Iexectime* DMAPI exectimeGetModule();
+IExectime* DMAPI ExectimeGetModule();
 
-typedef Iexectime* (DMAPI* PFN_exectimeGetModule)();
+typedef IExectime* (DMAPI* PFN_exectimeGetModule)();
 #endif // __EXECTIME_H_INCLUDE__
