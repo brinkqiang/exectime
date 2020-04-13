@@ -26,6 +26,8 @@ int main( int argc, char* argv[] ) {
 		uint32_t end = poModule->GetTickCount32();
 		std::cout << strRet << std::endl;
 		std::cout << end - start << " ms" << std::endl;
+
+        poModule->Release();
     }
 
     return 0;
