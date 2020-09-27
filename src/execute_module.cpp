@@ -19,17 +19,31 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#include "exectime.h"
+#include "execute_module.h"
 
-class Cexectime_module :
-    public Iexectime
+Cexecute_module::Cexecute_module()
 {
-public:
-    Cexectime_module();
-    
-    virtual ~Cexectime_module();
 
-    virtual void DMAPI Release(void);
-	
-    virtual void DMAPI Test(void);	
-};
+}
+
+Cexecute_module::~Cexecute_module()
+{
+
+}
+
+void DMAPI Cexecute_module::Release(void)
+{
+    delete this;
+}
+
+void DMAPI Cexecute_module::Test(void)
+{
+    std::cout << "PROJECT_NAME = execute" << std::endl;
+    std::cout << "PROJECT_NAME_UP = EXECUTE" << std::endl;
+    std::cout << "PROJECT_NAME_LO = execute" << std::endl;
+}
+
+Iexecute* DMAPI executeGetModule()
+{
+    return new Cexecute_module();
+}

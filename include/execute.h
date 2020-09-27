@@ -19,31 +19,21 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#include "exectime_module.h"
+#ifndef __EXECUTE_H_INCLUDE__
+#define __EXECUTE_H_INCLUDE__
 
-Cexectime_module::Cexectime_module()
+#include "dmos.h"
+
+class Iexecute
 {
+public:
+    virtual ~Iexecute() {}
+    virtual void DMAPI Release(void) = 0;
 
-}
+    virtual std::string DMAPI exec(const std::string& strCmd) = 0;
+};
 
-Cexectime_module::~Cexectime_module()
-{
+Iexecute* DMAPI executeGetModule();
 
-}
-
-void DMAPI Cexectime_module::Release(void)
-{
-    delete this;
-}
-
-void DMAPI Cexectime_module::Test(void)
-{
-    std::cout << "PROJECT_NAME = exectime" << std::endl;
-    std::cout << "PROJECT_NAME_UP = EXECTIME" << std::endl;
-    std::cout << "PROJECT_NAME_LO = exectime" << std::endl;
-}
-
-Iexectime* DMAPI exectimeGetModule()
-{
-    return new Cexectime_module();
-}
+typedef Iexecute* (DMAPI* PFN_executeGetModule)();
+#endif // __EXECUTE_H_INCLUDE__
