@@ -20,6 +20,53 @@
 // SOFTWARE.
 
 #include "execute_module.h"
+#define BUFFER_SIZE 256
+
+#ifdef WIN32
+#define popen _popen
+#define pclose _pclose
+
+#include <windows.h>
+#include <tlhelp32.h>
+#include <stdio.h>
+
+#endif
+#include <memory>
+
+std::string DMExecute(const char* cmd)
+{
+    std::string result;
+
+    std::shared_ptr<FILE> pipe(popen(cmd, "r"), pclose);
+
+    if (!pipe)
+    {
+        return result;
+    }
+
+    while (!feof(pipe.get()))
+    {
+        char szBuf[BUFFER_SIZE + 1] = { 0 };
+
+        if (fgets(szBuf, BUFFER_SIZE, pipe.get()) != nullptr)
+        {
+            result += szBuf;
+        }
+    }
+
+    return result;
+}
+
+static inline uint32_t GetTickCount32()
+{
+#ifdef _MSC_VER
+    return ::GetTickCount();
+#else
+    struct timespec ts = { 0 };
+    clock_gettime(CLOCK_MONOTONIC, &ts);
+    return (ts.tv_sec * 1000 + ts.tv_nsec / 1000000);
+#endif
+}
 
 Cexecute_module::Cexecute_module()
 {
@@ -36,11 +83,15 @@ void DMAPI Cexecute_module::Release(void)
     delete this;
 }
 
-void DMAPI Cexecute_module::Test(void)
+std::string DMAPI Cexecute_module::exec(const std::string& strCmd)
 {
-    std::cout << "PROJECT_NAME = execute" << std::endl;
-    std::cout << "PROJECT_NAME_UP = EXECUTE" << std::endl;
-    std::cout << "PROJECT_NAME_LO = execute" << std::endl;
+    uint32_t start = GetTickCount32();
+    std::string strRet = DMExecute(strCmd.c_str());
+    uint32_t end = GetTickCount32();
+    std::cout << strRet << std::endl;
+    std::cout << end - start << " ms" << std::endl;
+
+    return strRet;
 }
 
 Iexecute* DMAPI executeGetModule()

@@ -31,5 +31,5 @@ public:
 
     virtual void DMAPI Release(void);
 
-    virtual std::string DMAPI exec(const std::string& strCmd) = 0;
+    virtual std::string DMAPI exec(const std::string& strCmd);
 };
