@@ -19,22 +19,21 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#include "exectime.h"
+#ifndef __EXECUTE_H_INCLUDE__
+#define __EXECUTE_H_INCLUDE__
 
-class CExectime_module :
-    public IExectime
+#include "dmos.h"
+
+class Iexecute
 {
 public:
-    CExectime_module();
-    
-    virtual ~CExectime_module();
+    virtual ~Iexecute() {}
+    virtual void DMAPI Release(void) = 0;
 
-    virtual void DMAPI Release(void);
-	
-    virtual void DMAPI Test(void);	
-
-
-    virtual std::string DMExecute(const char* cmd);
-
-    virtual uint32_t GetTickCount32();
+    virtual std::string DMAPI exec(const std::string& strCmd) = 0;
 };
+
+Iexecute* DMAPI executeGetModule();
+
+typedef Iexecute* (DMAPI* PFN_executeGetModule)();
+#endif // __EXECUTE_H_INCLUDE__

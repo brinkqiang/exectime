@@ -2,20 +2,12 @@ cmake_minimum_required(VERSION 3.2)
 
 PROJECT(exectime)
 
-INCLUDE(cmake/ModuleImport.cmake)
 LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+INCLUDE(cmake/ModuleImport.cmake)
 INCLUDE(cmake/ModuleCompileOptions.cmake)
 ModuleSetCompileOptions()
+ModuleSetWinCompilerFlags()
 
-SET(EXECTIME_VERSION_MAJOR "1")
-SET(EXECTIME_VERSION_MINOR "0")
-SET(EXECTIME_VERSION_PATCH "1")
-SET(EXECTIME_VERSION "${EXECTIME_VERSION_MAJOR}.${EXECTIME_VERSION_MINOR}.${EXECTIME_VERSION_PATCH}")
-
-MESSAGE(STATUS "VERSION: ${EXECTIME_VERSION}")
-
-ADD_DEFINITIONS(-DUSE_EXECTIME)
-
-LibImport("exectime_module" "src/exectime_module")
-
-ExeImport("test" "exectime_module")
+ModuleImportAll("thirdparty")
+LibImport("execute_module" "src/execute_module")
+ExeImport("tools" "execute_module")
