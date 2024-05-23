@@ -26,6 +26,5 @@ exectime
 ```cpp
 ```
 ## Contacts
-[![Join the chat](https://badges.gitter.im/brinkqiang/exectime/Lobby.svg)](https://gitter.im/brinkqiang/exectime)
 
 ## Thanks
