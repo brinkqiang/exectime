@@ -20,6 +20,8 @@
 // SOFTWARE.
 
 #include "execute_module.h"
+#include "dmformat.h"
+
 #define BUFFER_SIZE 256
 
 #ifdef WIN32
@@ -89,7 +91,10 @@ std::string DMAPI Cexecute_module::exec(const std::string& strCmd)
     std::string strRet = DMExecute(strCmd.c_str());
     uint32_t end = GetTickCount32();
     std::cout << strRet << std::endl;
-    std::cout << end - start << " ms" << std::endl;
+    fmt::print("----------------------------------------------------\n");
+    fmt::print("{}\n", strRet);
+    fmt::print("----------------------------------------------------\n");
+    fmt::print("{} ms\n", end - start);
 
     return strRet;
 }
