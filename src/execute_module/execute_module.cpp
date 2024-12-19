@@ -88,10 +88,9 @@ void DMAPI Cexecute_module::Release(void)
 std::string DMAPI Cexecute_module::exec(const std::string& strCmd)
 {
     uint32_t start = GetTickCount32();
+    fmt::print("----------------------------------------------------\n");    
     std::string strRet = DMExecute(strCmd.c_str());
     uint32_t end = GetTickCount32();
-    fmt::print("----------------------------------------------------\n");
-    fmt::print("{}\n", strRet);
     fmt::print("----------------------------------------------------\n");
     fmt::print("{} ms\n", end - start);
 
