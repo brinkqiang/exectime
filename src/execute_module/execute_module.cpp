@@ -20,6 +20,7 @@
 // SOFTWARE.
 
 #include "execute_module.h"
+#include "dmutil.h"
 #include "dmformat.h"
 
 #define BUFFER_SIZE 256
