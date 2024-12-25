@@ -120,8 +120,15 @@ using namespace stdext;
 #include <unistd.h>
 
 #ifndef MAX_PATH
+
+#ifdef PATH_MAX
 #define MAX_PATH    PATH_MAX
+#else
+#define MAX_PATH    1024
 #endif
+
+#endif
+
 #define VSNPRINTF vsnprintf
 #define SleepMs(x) usleep(x*1000)
 #ifndef INFINITE
