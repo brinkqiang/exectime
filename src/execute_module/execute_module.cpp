@@ -97,10 +97,10 @@ std::string DMAPI Cexecute_module::exec(const std::string& strCmd)
     fmt::print("===== Execution Information =====\n");
     fmt::print("---------------------------------\n");
     // Boot Time with color (blue)
-    fmt::print("\033[34mBoot Time   : {}\033[0m\n", DMFormatDateTime(g_bootTime));
+    fmt::print("\033[34mBoot Time    : {}\033[0m\n", DMFormatDateTime(g_bootTime));
 
     // Return value with color (light cyan)
-    fmt::print("\033[36mRun Time     : {}\033[0m\n", DMFormatDateTime());
+    fmt::print("\033[36mRun  Time    : {}\033[0m\n", DMFormatDateTime());
 
     // Exec Time with color (green)
     fmt::print("\033[32mExec Time    : {} ms\033[0m\n", end - start);
