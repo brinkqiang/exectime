@@ -10,7 +10,9 @@ ModuleSetWinCompilerFlags()
 
 if ( MSVC )
     set_property( DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${PROJECT_NAME} )
+    ADD_COMPILE_OPTIONS("/std:c++17")
 endif()
+
 
 ModuleImportAll("thirdparty")
 LibImport("execute_module" "src/execute_module")
