@@ -94,8 +94,13 @@ std::string DMAPI Cexecute_module::exec(const std::string& strCmd)
    
     std::string strRet = DMExecute(strCmd.c_str());
     uint32_t end = GetTickCount32();
-    fmt::print("===== Execution Information =====\n");
-    fmt::print("---------------------------------\n");
+    fmt::print("====== Execution Information ======\n");
+    fmt::print("-----------------------------------\n");
+
+    // Return value with color (yellow)
+    fmt::print("\033[33mReturn       : \n{}\033[0m\n", strRet);
+    fmt::print("-----------------------------------\n");
+
     // Boot Time with color (blue)
     fmt::print("\033[34mBoot Time    : {}\033[0m\n", DMFormatDateTime(g_bootTime));
 
@@ -108,9 +113,7 @@ std::string DMAPI Cexecute_module::exec(const std::string& strCmd)
     // Command with color (red)
     fmt::print("\033[31mCommand      : {}\033[0m\n", strCmd);
 
-    // Return value with color (yellow)
-    fmt::print("\033[33mReturn       : \n{}\033[0m\n", strRet);
-    fmt::print("=================================\n");
+    fmt::print("===================================\n");
 
     return strRet;
 }
