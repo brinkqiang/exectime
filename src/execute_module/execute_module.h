@@ -35,5 +35,5 @@ public:
     virtual std::string DMAPI exec(const std::string& strCmd);
 private:
 
-    static time_t g_startTime;
+    static time_t g_bootTime;
 };
