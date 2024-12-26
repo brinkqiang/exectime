@@ -98,7 +98,7 @@ std::string DMAPI Cexecute_module::exec(const std::string& strCmd)
     fmt::print("===== Execution Information =====\n");
     fmt::print("---------------------------------\n");
     // Start Time with color (blue)
-    fmt::print("\033[34mStart Time   : {}\033[0m\n", DMFormatStartTime(g_startTime));
+    fmt::print("\033[34mStart Time   : {}\033[0m\n", DMFormatDateTime(g_startTime));
 
     // Return value with color (light cyan)
     fmt::print("\033[36mRun Time     : {}\033[0m\n", DMFormatDateTime());
