@@ -36,6 +36,7 @@
 #endif
 #include <memory>
 
+
 std::string DMExecute(const char* cmd)
 {
     std::string result;
@@ -71,6 +72,8 @@ static inline uint32_t GetTickCount32()
 #endif
 }
 
+
+Cexecute_module::time_t Cexecute_module::g_startTime = time(0);
 Cexecute_module::Cexecute_module()
 {
 

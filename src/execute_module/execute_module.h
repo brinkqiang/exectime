@@ -32,4 +32,7 @@ public:
     virtual void DMAPI Release(void);
 
     virtual std::string DMAPI exec(const std::string& strCmd);
+private:
+
+    static time_t g_startTime;
 };
