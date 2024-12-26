@@ -25,6 +25,8 @@ int main( int argc, char* argv[] )
     if (NULL != execute)
     {
         execute->exec(strArgs);
+
+        execute->Release();
     }
 
     return 0;
