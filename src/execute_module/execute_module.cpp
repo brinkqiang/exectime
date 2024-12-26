@@ -73,7 +73,7 @@ static inline uint32_t GetTickCount32()
 }
 
 
-Cexecute_module::time_t Cexecute_module::g_startTime = time(0);
+time_t Cexecute_module::g_startTime = time(0);
 Cexecute_module::Cexecute_module()
 {
 
@@ -97,6 +97,8 @@ std::string DMAPI Cexecute_module::exec(const std::string& strCmd)
     uint32_t end = GetTickCount32();
     fmt::print("===== Execution Information =====\n");
     fmt::print("---------------------------------\n");
+    // Start Time with color (blue)
+    fmt::print("\033[34mStart Time   : {}\033[0m\n", DMFormatStartTime(g_startTime));
 
     // Return value with color (light cyan)
     fmt::print("\033[36mRun Time     : {}\033[0m\n", DMFormatDateTime());

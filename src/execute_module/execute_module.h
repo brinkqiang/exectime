@@ -20,6 +20,7 @@
 // SOFTWARE.
 
 #include "execute.h"
+#include "dmutil.h"
 
 class Cexecute_module :
     public Iexecute
