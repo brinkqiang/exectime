@@ -18,11 +18,11 @@
 
 rm -rf build
 mkdir build
-pushd build
+cd build
 cmake -DCMAKE_BUILD_TYPE=relwithdebinfo ..
 cmake --build . --config relwithdebinfo -- -j$(nproc)
 echo cd build && sudo make install
-popd
+cd ..
 
 # popd
 
