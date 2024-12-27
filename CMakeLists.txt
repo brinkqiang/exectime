@@ -19,9 +19,4 @@ LibImport("execute_module" "src/execute_module")
 
 ExeImport("tools" "execute_module")
 
-INSTALL(TARGETS exectime
-        RUNTIME DESTINATION bin
-        LIBRARY DESTINATION lib
-        ARCHIVE DESTINATION lib)
-
-AddUninstallTarget()
+AddInstall(exectime)
