@@ -13,7 +13,6 @@ if ( MSVC )
     ADD_COMPILE_OPTIONS("/std:c++17")
 endif()
 
-
 ModuleImportAll("thirdparty")
 LibImport("execute_module" "src/execute_module")
 
