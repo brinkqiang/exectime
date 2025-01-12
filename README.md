@@ -12,6 +12,17 @@ Copyright (c) 2013-2018 brinkqiang (brink.qiang@gmail.com)
 ## Intro
 exectime
 ```cpp
+./exectime echo hello world!
+====== Execution Information ======
+-----------------------------------
+Return       : 
+hello world!
+
+-----------------------------------
+Boot Time    : 2025-01-12 18:23:05
+Run  Time    : 2025-01-12 18:23:05
+Exec Time    : 6 ms
+Command      : echo hello world!
 ```
 ## Contacts
 
