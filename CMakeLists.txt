@@ -19,4 +19,4 @@ LibImport("execute_module" "src/execute_module")
 
 ExeImport("tools" "execute_module")
 
-AddInstall(exectime)
+AddInstall("exectime" "")
