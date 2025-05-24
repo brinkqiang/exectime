@@ -44,25 +44,12 @@ static inline bool dm_win_utf8_internal_do_setup(void) {
     BOOL input_cp_set_ok = SetConsoleCP(DMFIX_INTERNAL_CODE_PAGE_UTF8);
     return (output_cp_set_ok != 0 && input_cp_set_ok != 0);
 #else
-    /*
-     * Note: <fcntl.h> and <io.h> from the C++ example are not strictly needed
-     * for SetConsoleOutputCP/SetConsoleCP. They would be relevant for functions like _setmode
-     * if one wanted to set stdout/stdin to _O_U8TEXT or _O_WTEXT for printf/scanf.
-     * The original C++ example's Initializer did not use them.
-     */
-    /*
-     * Attempts to set the program's locale to UTF-8.
-     * Common locale strings for UTF-8 include "en_US.utf8", "C.UTF-8".
-     * The specific string "en_US.utf8" might not be available on all systems.
-     * setlocale(LC_ALL, "") would use the system's environment-defined locale.
-     * Sticking to "en_US.utf8" to match the C++ example's behavior.
-     */
     if (setlocale(LC_ALL, "en_US.utf8") != NULL) {
         return true;
     }
-    // else if (setlocale(LC_ALL, "C.UTF-8") != NULL) {
-    //     return true;
-    // }
+    else if (setlocale(LC_ALL, "C.UTF-8") != NULL) {
+        return true;
+    }
     return false;
 #endif
 }
