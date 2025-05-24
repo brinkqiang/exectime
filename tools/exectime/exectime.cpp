@@ -1,6 +1,6 @@
 
 #include "execute.h"
-
+#include "dmfix_win.h"
 int main( int argc, char* argv[] )
 {
     if (1 == argc)
