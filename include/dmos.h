@@ -22,7 +22,7 @@
 #ifndef __DMOS_H_INCLUDE__
 #define __DMOS_H_INCLUDE__
 
-#ifdef WIN32
+#ifdef _WIN32
 
 #ifndef _WIN32_WINNT
 #define _WIN32_WINNT 0x0501
@@ -120,15 +120,8 @@ using namespace stdext;
 #include <unistd.h>
 
 #ifndef MAX_PATH
-
-#ifdef PATH_MAX
 #define MAX_PATH    PATH_MAX
-#else
-#define MAX_PATH    1024
 #endif
-
-#endif
-
 #define VSNPRINTF vsnprintf
 #define SleepMs(x) usleep(x*1000)
 #ifndef INFINITE
@@ -138,20 +131,20 @@ using namespace stdext;
 
 #define PATH_IS_DELIMITER(x)  ('\\' == x || '/' == x)
 
-#ifdef WIN32
+#ifdef _WIN32
 #define PATH_DELIMITER '\\'
 #else
 #define PATH_DELIMITER '/'
 #endif
 
-#ifdef WIN32
+#ifdef _WIN32
 #define PATH_DELIMITER_STR "\\"
 #else
 #define PATH_DELIMITER_STR "/"
 #endif
 #define DMASSERT assert
 
-#ifdef WIN32
+#ifdef _WIN32
 #define DMAPI __stdcall
 typedef HANDLE DMHANDLE;
 #define DMINVALID_HANDLE  NULL
@@ -159,6 +152,24 @@ typedef HANDLE DMHANDLE;
 #define DMAPI
 typedef int DMHANDLE;
 #define DMINVALID_HANDLE  0
+#endif
+
+#ifdef _WIN32
+
+#ifdef _MSC_VER
+#define DMEXPORT_DLL __declspec(dllexport)
+#else
+#define DMEXPORT_DLL
+#endif
+
+#else
+
+#ifdef __GNUC__
+#define DMEXPORT_DLL __attribute__((visibility("default")))
+#else
+#define DMEXPORT_DLL
+#endif
+
 #endif
 
 #endif // __DMOS_H_INCLUDE__
