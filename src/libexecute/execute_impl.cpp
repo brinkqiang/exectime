@@ -19,7 +19,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#include "execute_module.h"
+#include "execute_impl.h"
 #include "dmformat.h"
 
 #define BUFFER_SIZE 256
@@ -72,23 +72,23 @@ static inline uint32_t GetTickCount32()
 }
 
 
-time_t Cexecute_module::g_bootTime = time(0);
-Cexecute_module::Cexecute_module()
+time_t execute_impl::g_bootTime = time(0);
+execute_impl::execute_impl()
 {
 
 }
 
-Cexecute_module::~Cexecute_module()
+execute_impl::~execute_impl()
 {
 
 }
 
-void DMAPI Cexecute_module::Release(void)
+void DMAPI execute_impl::Release(void)
 {
     delete this;
 }
 
-std::string DMAPI Cexecute_module::exec(const std::string& strCmd)
+std::string DMAPI execute_impl::exec(const std::string& strCmd)
 {
     uint32_t start = GetTickCount32();
    
@@ -120,5 +120,5 @@ std::string DMAPI Cexecute_module::exec(const std::string& strCmd)
 
 Iexecute* DMAPI executeGetModule()
 {
-    return new Cexecute_module();
+    return new execute_impl();
 }

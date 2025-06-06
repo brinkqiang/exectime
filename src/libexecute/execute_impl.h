@@ -22,13 +22,13 @@
 #include "execute.h"
 #include "dmutil.h"
 
-class Cexecute_module :
+class execute_impl :
     public Iexecute
 {
 public:
-    Cexecute_module();
+    execute_impl();
 
-    virtual ~Cexecute_module();
+    virtual ~execute_impl();
 
     virtual void DMAPI Release(void);
 

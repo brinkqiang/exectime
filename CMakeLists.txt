@@ -14,8 +14,12 @@ if ( MSVC )
     set_property( DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${PROJECT_NAME} )
 endif()
 
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+set(CMAKE_STATIC_LIBRARY_PREFIX "")
+set(CMAKE_SHARED_LIBRARY_PREFIX "")
+
 ModuleImportAll("thirdparty")
-LibImport("execute_module" "src/execute_module")
+LibImport("libexecute" "src/libexecute")
 
 ExeImport("tools" "execute_module")
 
