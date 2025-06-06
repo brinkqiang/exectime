@@ -21,6 +21,6 @@ set(CMAKE_SHARED_LIBRARY_PREFIX "")
 ModuleImportAll("thirdparty")
 LibImport("libexecute" "src/libexecute")
 
-ExeImport("tools" "execute_module")
+ExeImport("tools" "libexecute")
 
 AddInstall("exectime" "")

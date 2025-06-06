@@ -157,7 +157,7 @@ typedef int DMHANDLE;
 #ifdef _WIN32
 
 #ifdef _MSC_VER
-#define DMEXPORT_DLL __declspec(dllexport)
+#define DMEXPORT_DLL
 #else
 #define DMEXPORT_DLL
 #endif

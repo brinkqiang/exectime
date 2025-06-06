@@ -118,7 +118,7 @@ std::string DMAPI execute_impl::exec(const std::string& strCmd)
     return strRet;
 }
 
-Iexecute* DMAPI executeGetModule()
+extern "C" DMEXPORT_DLL Iexecute* DMAPI executeGetModule()
 {
     return new execute_impl();
 }

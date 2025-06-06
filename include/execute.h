@@ -33,7 +33,7 @@ public:
     virtual std::string DMAPI exec(const std::string& strCmd) = 0;
 };
 
-Iexecute* DMAPI executeGetModule();
+extern "C" DMEXPORT_DLL Iexecute* DMAPI executeGetModule();
 
 typedef Iexecute* (DMAPI* PFN_executeGetModule)();
 #endif // __EXECUTE_H_INCLUDE__
