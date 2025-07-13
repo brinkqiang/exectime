@@ -94,7 +94,7 @@ namespace DmInternal {
 } // namespace DmInternal
 
 // Public C-linkage function for manual initialization if needed from C++
-extern "C" bool dm_win_console_init() {
+extern "C" inline bool dm_win_console_init() {
   return dm_win_console_internal_do_setup();
 }
 
